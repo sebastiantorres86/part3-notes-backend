@@ -70,6 +70,7 @@ app.put('/api/notes/:id', (request, response, next) => {
   Note.findByIdAndUpdate(request.params.id, note, { new: true })
     .then(updateNote => [response.json(updateNote)])
     .catch(error => next(error))
+
 })
 
 const unknownEndpoint = (request, response) => {
