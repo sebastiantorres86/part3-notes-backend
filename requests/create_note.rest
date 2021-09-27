@@ -3,5 +3,17 @@ Content-Type: application/json
 
 {
     "content": "VS Code REST client is pretty good",
-    "important": false
+    "important": false}
+
+###
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{
+    "content": "lol",
+    "important": true
 }
+
+###
+DELETE http://localhost:3001/api/notes/6151ca9a3d9884f127097f4a
+Content-Type: application/json
