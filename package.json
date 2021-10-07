@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
     "build:ui": "rd -r build cd ../part2-notes ; yarn build --prod ; copy -r build ../part3-notes-backend ; cd ../part3-notes-backend",
     "deploy": "git push heroku main",
     "deploy:full": "npm run build:ui ; git add . ; git commit -m uibuild ; git push ; npm run deploy",
-    "logs:prod": "heroku logs --tail"
+    "logs:prod": "heroku logs --tail",
+    "lint": "eslint .",
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,11 @@
     "mongoose": "^6.0.7"
   },
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "jest": "^27.2.4",
     "nodemon": "^2.0.12"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
