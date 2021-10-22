@@ -2,8 +2,6 @@
 /* eslint-disable no-undef */
 const mongoose = require('mongoose')
 
-const url = process.env.MONGODB_URI
-
 const noteSchema = new mongoose.Schema({
   content: {
     type: String,
